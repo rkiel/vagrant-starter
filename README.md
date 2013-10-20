@@ -209,7 +209,8 @@ echo "gem 'unicorn'" >> Gemfile
 We're using PostgreSQL for development so no need for SQLite. Remove its gem from the `Gemfile`.
 
 ```unix
-sed -i -e "s/gem 'sqlite3'/#gem 'sqlite3'/" Gemfile
+sed -i .bak -e "s/gem 'sqlite3'/#gem 'sqlite3'/" Gemfile
+rm Gemfile.bak
 ```
 
 When Vagrant boots up its servers, it saves temporary data in a `.vagrant` directory.
