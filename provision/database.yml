@@ -1,0 +1,15 @@
+base_postgresql: &base_postgresql
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: robert
+  password: robert
+  host: 192.168.33.11
+
+development:
+  <<: *base_postgresql
+  database: rails_starter_development
+
+test:
+  <<: *base_postgresql
+  database: rails_starter_test
