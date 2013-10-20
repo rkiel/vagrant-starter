@@ -173,13 +173,15 @@ Download the rails-starter repo from GitHub.
 ```unix
 mkdir -p ~/GitHub/rkiel
 cd ~/GitHub/rkiel
-git clone https://github.com/rkiel/rails-starter.git
+git clone https://github.com/rkiel/rails-starter.git MY_NEW_APP
 ```
 
-Go to the Rails Starter repo.
+Go to the Rails Starter repo.  Replace any references to RailsStarter in the code with MyNewApp.
 
 ```unix
-cd ~/GitHub/rkiel/rails-starter
+cd ~/GitHub/rkiel/MY_NEW_APP
+./bin/starter.sh MyNewApp
+rm bin/starter.sh
 ```
 
 Copy over the Vagrant configuration files from the vagrant-starter repo.
