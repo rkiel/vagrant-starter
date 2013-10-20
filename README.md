@@ -1,4 +1,4 @@
-## Vagrant 101 - Rails Edition
+## Vagrant Starter - Rails Edition
 
 Welcome to this quick start guide to setting up a Ruby on Rails development environment using Vagrant.
 
@@ -62,7 +62,7 @@ Download this repository from GitHub.
 ```unix
 mkdir -p ~/GitHub/rkiel
 cd ~/GitHub/rkiel
-git clone https://github.com/rkiel/vagrant101.git
+git clone https://github.com/rkiel/vagrant-starter.git
 ```
 
 There are two parts to this small repo.
@@ -81,7 +81,7 @@ Vagrant also supports [Chef](http://www.opscode.com/chef/) and
 Now use Vagrant to boot up the virtual servers.
 
 ```unix
-cd ~/GitHub/rkiel/vagrant101
+cd ~/GitHub/rkiel/vagrant-starter
 vagrant up
 ```
 
@@ -182,11 +182,11 @@ Go to the Rails Starter repo.
 cd ~/GitHub/rkiel/rails-starter
 ```
 
-Copy over the Vagrant configuration files from the vagrant101 repo.
+Copy over the Vagrant configuration files from the vagrant-starter repo.
 
 ```unix
-cp ../vagrant101/Vagrantfile .
-cp -r ../vagrant101/provision .
+cp ../vagrant-starter/Vagrantfile .
+cp -r ../vagrant-starter/provision .
 ```
 
 I created a `database.yml` file to access the PostgreSQL database.
