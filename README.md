@@ -2,15 +2,23 @@
 
 Welcome to this quick start guide to setting up a Ruby on Rails development environment using Vagrant.
 
-Imagine you just got a new computer and want to quickly setup a development environment for Ruby on Rails.
+Imagine you just got a new computer and want to quickly setup a Virtual Box based development environment for Ruby on Rails.
 Vagrant is a great tool to make that happen.
 This self-contained guide will walk you through the process.
 The result will be two virtual, Ubuntu servers.  One server hosting a PostgreSQL database and the other hosting a simple Rails application.
-The complete technology stack I've stitched together for this guide includes RVM, Ruby 2.0, Rails 4.0, Nginx, Unicorn, and PostgreSQL.
-Obviously once you see how this works, you can modify it to use your own preferred technology stack.
+The complete technology stack I've stitched together for this guide includes:
 
-I won't necessarily make the full case for Vagrant here.
-So checkout [Why Vagrant?](http://docs.vagrantup.com/v2/why-vagrant/index.html) for that.
+* RVM
+* Ruby 2.0
+* Rails 4.0
+* Nginx
+* Unicorn
+* PostgreSQL.
+
+Once you see how this works, you can modify it to use your own preferred technology stack.
+
+I won't try to make the case for Vagrant here.
+Checkout [Why Vagrant?](http://docs.vagrantup.com/v2/why-vagrant/index.html) for that.
 
 I created this on my MacBook Pro laptop running OS X Mountain Lion.
 
