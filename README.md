@@ -310,7 +310,7 @@ unicorn -c provision/unicorn.rb
 ```
 
 Nginx is configured to listen on port 80.
-It is a revers proxy for Unicorn.
+It is a reverse proxy for Unicorn.
 Nginx and Unicorn are configured to communicate via a unix socket `/tmp/unicorn.rails_starter.sock`.
 Open your browser to IP 192.168.33.10 on port 80.
 
