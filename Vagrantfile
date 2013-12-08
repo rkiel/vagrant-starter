@@ -12,6 +12,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.define "web" do |box|
     box.vm.network "private_network", ip: "192.168.33.10"
+    box.vm.provision "shell", path: "provision/git.sh"
     box.vm.provision "shell", path: "provision/rvm.sh"
     box.vm.provision "shell", path: "provision/nginx.sh"
     box.vm.provision "shell", path: "provision/postgresql_client.sh"
