@@ -44,7 +44,7 @@ Other providers such as VMWare and AWS are in the works.
 To make this guide, I used version 4.2.18.
 It is recommended that you restart your computer after installing Virtual Box.
 
-* [Download and install Vagrant](http://downloads.vagrantup.com).
+* [Download and install Vagrant](http://www.vagrantup.com/downloads.html).
 To make this guide, I used version 1.3.4.
 
 * That's it.
@@ -256,7 +256,7 @@ ls -l
 ```
 
 With access to the Rails project files, we can finish our configuration.
-Install the gems uning bundler.
+Install the gems using bundler.
 
 ```unix
 bundle install
