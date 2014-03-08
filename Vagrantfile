@@ -16,11 +16,17 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     box.vm.provision "shell", path: "provision/rvm.sh"
     box.vm.provision "shell", path: "provision/nginx.sh"
     box.vm.provision "shell", path: "provision/postgresql_client.sh"
-    box.vm.provision "shell", path: "provision/aws.sh"
   end
 
   config.vm.define "db" do |box|
     box.vm.network "private_network", ip: "192.168.33.11"
     box.vm.provision "shell", path: "provision/postgresql_server.sh"
   end
+
+  config.vm.define "aws" do |box|
+    box.vm.network "private_network", ip: "192.168.33.12"
+    box.vm.provision "shell", path: "provision/rvm.sh"
+    box.vm.provision "shell", path: "provision/aws.sh"
+  end
+
 end
