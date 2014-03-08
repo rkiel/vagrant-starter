@@ -16,6 +16,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     box.vm.provision "shell", path: "provision/rvm.sh"
     box.vm.provision "shell", path: "provision/nginx.sh"
     box.vm.provision "shell", path: "provision/postgresql_client.sh"
+    box.vm.provision "shell", path: "provision/aws.sh"
   end
 
   config.vm.define "db" do |box|
