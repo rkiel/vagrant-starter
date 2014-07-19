@@ -9,8 +9,8 @@ echo "Heroku toolbelt added to bashrc"
 
 echo "Installing Heroku gems"
 cd /vagrant
-echo "gem 'netrc',       '~> 0.7.7'"  >> Gemfile
-echo "gem 'rest_client', '~> 1.7.3'"  >> Gemfile
-echo "gem 'heroku-api',  '~> 0.3.18'" >> Gemfile
+echo "gem 'netrc',       '~> 0.7.7',  group: :development" >> Gemfile
+echo "gem 'rest_client', '~> 1.7.3',  group: :development" >> Gemfile
+echo "gem 'heroku-api',  '~> 0.3.18', group: :development" >> Gemfile
 echo "Heroku gems installed"
 
