@@ -1,6 +1,24 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+servers = [ {
+    name:   "web",
+    active: true,
+    ip:     "192.168.33.10",
+    sw:     %w{git rvm nginx postgresql_client heroku ssh}
+  }, {
+    name:   "db",
+    active: true,
+    ip:     "192.168.33.11",
+    sw:     %w{postgresql_server}
+  }, {
+    name:   "aws",
+    active: false,
+    ip:     "192.168.33.12",
+    sw:     %w{rvm aws}
+  }
+]
+
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
 
@@ -10,23 +28,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provision "shell", path: "provision/all.sh"
 
-  config.vm.define "web" do |box|
-    box.vm.network "private_network", ip: "192.168.33.10"
-    box.vm.provision "shell", path: "provision/git.sh"
-    box.vm.provision "shell", path: "provision/rvm.sh"
-    box.vm.provision "shell", path: "provision/nginx.sh"
-    box.vm.provision "shell", path: "provision/postgresql_client.sh"
-  end
-
-  config.vm.define "db" do |box|
-    box.vm.network "private_network", ip: "192.168.33.11"
-    box.vm.provision "shell", path: "provision/postgresql_server.sh"
-  end
-
-  config.vm.define "aws" do |box|
-    box.vm.network "private_network", ip: "192.168.33.12"
-    box.vm.provision "shell", path: "provision/rvm.sh"
-    box.vm.provision "shell", path: "provision/aws.sh"
+  servers.each do |server|
+    config.vm.define server[:name] do |box|
+      box.vm.network "private_network", ip: server[:ip]
+      server[:sw].each do |package|
+        box.vm.provision "shell", path: "provision/#{package}.sh"
+      end
+    end if server[:active]
   end
 
 end

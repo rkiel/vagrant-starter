@@ -7,10 +7,16 @@ echo "Adding Heroku toolbelt to bashrc"
 echo 'PATH="/usr/local/heroku/bin:$PATH"' >> /home/vagrant/.profile
 echo "Heroku toolbelt added to bashrc"
 
-echo "Installing Heroku gems"
 cd /vagrant
-echo "gem 'netrc',       '~> 0.7.7',  group: :development" >> Gemfile
-echo "gem 'rest_client', '~> 1.7.3',  group: :development" >> Gemfile
-echo "gem 'heroku-api',  '~> 0.3.18', group: :development" >> Gemfile
-echo "Heroku gems installed"
+if [ -e Gemfile ]; then
+  if ! grep -q heroku-api Gemfile; then
+    echo "Installing Heroku gems"
+    echo "group :development do"            >> Gemfile
+    echo "  gem 'netrc',       '~> 0.7.7'"  >> Gemfile
+    echo "  gem 'rest_client', '~> 1.7.3'"  >> Gemfile
+    echo "  gem 'heroku-api',  '~> 0.3.18'" >> Gemfile
+    echo "end"                              >> Gemfile
+    echo "Heroku gems installed"
+  fi
+fi
 
