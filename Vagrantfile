@@ -5,20 +5,21 @@ active = [:rails, :pg]
 
 servers = {
   rails:  {type: :rails,    provision: %w{rvm postgresql_client} },
-  pg:     {type: :db,       provision: %w{postgresql_server} },
+  pg:     {type: :sql,       provision: %w{postgresql_server} },
   aws:    {type: :aws,      provision: %w{rvm aws} },
   heroku: {type: :heroku,   provision: %w{git rvm heroku ssh} },
   node:   {type: :node,     provision: %w{node} },
   sails:  {type: :node,     provision: %w{node sails} },
-  mean:   {type: :node,     provision: %w{node mean} }
+  mean:   {type: :node,     provision: %w{git node mean} }
 }.select { |key,value| active.include? key }
 
 types = {
   rails:  { box: :precise64, ip: "192.168.33.10" },
-  db:     { box: :precise64, ip: "192.168.33.11" },
-  aws:    { box: :precise64, ip: "192.168.33.12" },
-  node:   { box: :trusty64,  ip: "192.168.33.13" },
-  heroku: { box: :precise64, ip: "192.168.33.14" }
+  sql:    { box: :precise64, ip: "192.168.33.20" },
+  nosql:  { box: :trusty64,  ip: "192.168.33.30" },
+  aws:    { box: :precise64, ip: "192.168.33.40" },
+  heroku: { box: :precise64, ip: "192.168.33.50" },
+  node:   { box: :trusty64,  ip: "192.168.33.60" }
 }
 
 boxes = {
