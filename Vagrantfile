@@ -1,52 +1,30 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-defaults = {
-  box:     "precise64",
-  box_url: "http://files.vagrantup.com/precise64.box"
+active = [:rails, :pg]
+
+servers = {
+  rails:  {type: :rails,    provision: %w{rvm postgresql_client} },
+  pg:     {type: :db,       provision: %w{postgresql_server} },
+  aws:    {type: :aws,      provision: %w{rvm aws} },
+  heroku: {type: :heroku,   provision: %w{git rvm heroku ssh} },
+  node:   {type: :node,     provision: %w{node} },
+  sails:  {type: :node,     provision: %w{node sails} },
+  mean:   {type: :node,     provision: %w{node mean} }
+}.select { |key,value| active.include? key }
+
+types = {
+  rails:  { box: :precise64, ip: "192.168.33.10" },
+  db:     { box: :precise64, ip: "192.168.33.11" },
+  aws:    { box: :precise64, ip: "192.168.33.12" },
+  node:   { box: :trusty64,  ip: "192.168.33.13" },
+  heroku: { box: :precise64, ip: "192.168.33.14" }
 }
 
-rails_defaults  = defaults.merge( ip: "192.168.33.10")
-db_defaults     = defaults.merge( ip: "192.168.33.11")
-aws_defaults    = defaults.merge( ip: "192.168.33.12")
-node_defaults   = defaults.merge( ip: "192.168.33.13")
-heroku_defaults = defaults.merge( ip: "192.168.33.14")
-
-node_defaults = node_defaults.merge(
-  box:    "trusty64",
-  box_url: "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
-)
-
-servers = [ rails_defaults.merge(
-    name:   "rails",
-    active: false,
-    sw:     %w{rvm postgresql_client}
-  ), db_defaults.merge(
-    name:   "pg",
-    active: false,
-    sw:     %w{postgresql_server}
-  ), aws_defaults.merge(
-    name:   "aws",
-    active: false,
-    sw:     %w{rvm aws}
-  ), heroku_defaults.merge(
-    name:   "heroku",
-    active: false,
-    sw:     %w{git rvm heroku ssh}
-  ), node_defaults.merge(
-    name:   "node",
-    active: true,
-    sw:     %w{node}
-  ), node_defaults.merge(
-    name:   "sails",
-    active: false,
-    sw:     %w{node sails}
-  ), node_defaults.merge(
-    name:   "mean",
-    active: false,
-    sw:     %w{node mean}
-  )
-]
+boxes = {
+  precise64: "http://files.vagrantup.com/precise64.box",
+  trusty64:  "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
+}
 
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
@@ -55,16 +33,25 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provision "shell", path: "provision/all.sh"
 
-  servers.each do |server|
-    config.vm.define server[:name] do |box|
-      box.vm.box     = server[:box]
-      box.vm.box_url = server[:box_url]
+  servers.each do |key, value|
+    type      = value[:type]
+    provision = value[:provision]
 
-      box.vm.network "private_network", ip: server[:ip]
-      server[:sw].each do |package|
-        box.vm.provision "shell", path: "provision/#{package}.sh"
+    name      = key.to_s
+    defaults  = types[type]
+    ip        = defaults[:ip]
+    box       = defaults[:box].to_s
+    url       = boxes[defaults[:box]]
+
+    config.vm.define name do |server|
+      server.vm.box     = box
+      server.vm.box_url = url
+
+      server.vm.network "private_network", ip: ip
+      provision.each do |package|
+        server.vm.provision "shell", path: "provision/#{package}.sh"
       end
-    end if server[:active]
+    end
   end
 
 end
