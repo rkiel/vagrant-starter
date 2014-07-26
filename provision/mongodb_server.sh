@@ -14,15 +14,16 @@ apt-get update
 echo "  installing mongodb-org"
 apt-get install -y mongodb-org
 
+cp /vagrant/provision/mongod.conf /etc
 
 mkdir -p /home/vagrant/mongodb/data
 mkdir -p /home/vagrant/mongodb/log
 mkdir -p /home/vagrant/mongodb/config
-cp /vagrant/provision/mongod.conf /home/vagrant/mongodb/config
-chown -R vagrant:vagrant /home/vagrant/mongodb
+chown -R mongodb:mongodb /home/vagrant/mongodb
 
-echo "  starting mongod service"
-sudo -u vagrant mongod --config /home/vagrant/mongodb/config/mongod.conf --fork
+echo "  re-starting mongod service"
+service mongod stop
+service mongod start
 
 echo "mongoDb installed"
 
