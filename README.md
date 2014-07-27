@@ -89,6 +89,7 @@ Now start up Vagrant.
 vagrant up
 ````
 
+What is wrong?
 
 Server|Type|IP|Stack
 ------|----|--|-----
