@@ -90,13 +90,13 @@ vagrant up
 ````
 
 
-|Server|Type|IP|Stack|
-|------|----|--|-----|
-|rails|rails|192.168.33.10|rvm postgresql_client|
-|pg|sql|192.168.33.20|postgresql_server|
-|mongo|nosql|192.168.33.30|mongodb_server|
-|aws|aws|192.168.33.40|rvm aws|
-|heroku|heroku|192.168.33.50|git rvm heroku ssh|
-|node|node|192.168.33.60|node|
-|sails|node|192.168.33.60|node sails|
-|mean|node|192.168.33.60|git node mean|
+Server|Type|IP|Stack
+------|----|--|-----
+rails|rails|192.168.33.10|rvm postgresql_client
+pg|sql|192.168.33.20|postgresql_server
+mongo|nosql|192.168.33.30|mongodb_server
+aws|aws|192.168.33.40|rvm aws
+heroku|heroku|192.168.33.50|git rvm heroku ssh
+node|node|192.168.33.60|node
+sails|node|192.168.33.60|node sails
+mean|node|192.168.33.60|git node mean
