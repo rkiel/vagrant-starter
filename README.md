@@ -79,14 +79,14 @@ Vagrant also supports [Chef](http://www.opscode.com/chef/) and
 
 Server | Type   | IP            | Stack Provisioners
 ------ | ------ | ------------- | ------------------
-rails  | rails  | 192.168.33.10 | rvm postgresql_client
+rails  | ruby   | 192.168.33.10 | rvm postgresql_client
 pg     | sql    | 192.168.33.20 | postgresql_server
 mongo  | nosql  | 192.168.33.30 | mongodb_server
 aws    | aws    | 192.168.33.40 | rvm aws
 heroku | heroku | 192.168.33.50 | git rvm heroku ssh
-node   | node   | 192.168.33.60 | node
-sails  | node   | 192.168.33.60 | node sails
-mean   | node   | 192.168.33.60 | git node mean
+node   | javascript | 192.168.33.60 | node
+sails  | javascript | 192.168.33.60 | node sails
+mean   | javascript | 192.168.33.60 | git node mean
 
 ### Sample Ruby on Rails Setup
 
