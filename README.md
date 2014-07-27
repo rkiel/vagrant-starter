@@ -91,6 +91,7 @@ vagrant up
 
 
 |Server|Type|IP|Stack|
+|------|----|--|-----|
 |rails|rails|192.168.33.10|rvm postgresql_client|
 |pg|sql|192.168.33.20|postgresql_server|
 |mongo|nosql|192.168.33.30|mongodb_server|
