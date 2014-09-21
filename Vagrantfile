@@ -1,7 +1,7 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-active = [:sails, :mongo]
+active = [:rails, :pg, :heroku]
 
 servers = {
   rails:  {type: :ruby,        provision: %w{rvm postgresql_client} },
@@ -15,12 +15,12 @@ servers = {
 }.select { |key,value| active.include? key }
 
 types = {
-  ruby:        { box: :precise64, ip: "192.168.33.10" },
-  sql:         { box: :precise64, ip: "192.168.33.20" },
-  nosql:       { box: :trusty64,  ip: "192.168.33.30" },
-  aws:         { box: :precise64, ip: "192.168.33.40" },
-  heroku:      { box: :precise64, ip: "192.168.33.50" },
-  javascript:  { box: :trusty64,  ip: "192.168.33.60" }
+  ruby:        { box: :trusty64, ip: "192.168.33.10" },
+  sql:         { box: :trusty64, ip: "192.168.33.20" },
+  nosql:       { box: :trusty64, ip: "192.168.33.30" },
+  aws:         { box: :trusty64, ip: "192.168.33.40" },
+  heroku:      { box: :trusty64, ip: "192.168.33.50" },
+  javascript:  { box: :trusty64, ip: "192.168.33.60" }
 }
 
 boxes = {

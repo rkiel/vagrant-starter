@@ -2,8 +2,8 @@
 
 echo "Begin PostgreSQL"
 
-echo "Installing Postgres 9.1"
-apt-get install -y postgresql-9.1
+echo "Installing Postgres 9.3"
+apt-get install -y postgresql-9.3
 
 echo "Creating role"
 sudo -u postgres psql -c "create role robert login createdb password 'robert';"
@@ -15,8 +15,8 @@ sudo -u postgres psql -c "create database template1 with owner=postgres encoding
 sudo -u postgres psql -c "update pg_database set datistemplate=true where datname='template1';"
 
 echo "Editing conf files to support network access"
-sed -i -e "s/#listen_addresses = 'localhost'/listen_addresses = '*'/" /etc/postgresql/9.1/main/postgresql.conf
-sed -i -e "s/127.0.0.1\/32/0.0.0.0\/0/"                               /etc/postgresql/9.1/main/pg_hba.conf
+sed -i -e "s/#listen_addresses = 'localhost'/listen_addresses = '*'/" /etc/postgresql/9.3/main/postgresql.conf
+sed -i -e "s/127.0.0.1\/32/0.0.0.0\/0/"                               /etc/postgresql/9.3/main/pg_hba.conf
 
 echo "Restarting"
 service postgresql restart

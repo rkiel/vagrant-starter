@@ -14,7 +14,7 @@ if ! grep -q heroku-api Gemfile; then
   echo "group :development do"            >> Gemfile
   echo "  gem 'netrc',       '~> 0.7.7'"  >> Gemfile
   echo "  gem 'rest_client', '~> 1.7.3'"  >> Gemfile
-  echo "  gem 'heroku-api',  '~> 0.3.18'" >> Gemfile
+  echo "  gem 'heroku-api',  '~> 0.3.19'" >> Gemfile
   echo "end"                              >> Gemfile
   echo "Heroku gems installed"
 fi

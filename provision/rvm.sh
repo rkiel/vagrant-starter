@@ -3,5 +3,5 @@
 #
 \curl -L https://get.rvm.io | bash -s stable --autolibs=packages
 source /etc/profile.d/rvm.sh
-rvm install 2.1.1
+rvm install 2.1.3
 adduser vagrant rvm
