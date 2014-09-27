@@ -87,6 +87,7 @@ heroku | heroku | 192.168.33.50 | git, rvm, heroku, ssh
 node   | javascript | 192.168.33.60 | node
 sails  | javascript | 192.168.33.60 | node, sails
 mean   | javascript | 192.168.33.60 | git, node, mean
+nginx  | static | 192.168.33.70 | nginx-static
 
 ### Sample Ruby on Rails Setup
 
