@@ -1,7 +1,7 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-active = [:rails, :pg, :heroku]
+active = [:nginx]
 
 servers = {
   rails:  {type: :ruby,        provision: %w{rvm postgresql_client} },
@@ -11,7 +11,8 @@ servers = {
   heroku: {type: :heroku,      provision: %w{git rvm heroku ssh} },
   node:   {type: :javascript,  provision: %w{node} },
   sails:  {type: :javascript,  provision: %w{node sails} },
-  mean:   {type: :javascript,  provision: %w{git node mean} }
+  mean:   {type: :javascript,  provision: %w{git node mean} },
+  nginx:  {type: :static,      provision: %w{nginx-static} }
 }.select { |key,value| active.include? key }
 
 types = {
@@ -20,7 +21,8 @@ types = {
   nosql:       { box: :trusty64, ip: "192.168.33.30" },
   aws:         { box: :trusty64, ip: "192.168.33.40" },
   heroku:      { box: :trusty64, ip: "192.168.33.50" },
-  javascript:  { box: :trusty64, ip: "192.168.33.60" }
+  javascript:  { box: :trusty64, ip: "192.168.33.60" },
+  static:      { box: :trusty64, ip: "192.168.33.70" }
 }
 
 boxes = {
