@@ -1,9 +1,10 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-active = [:node, :mongo]
+active = [:ruby]
 
 servers = {
+  ruby:   {type: :ruby,        provision: %w{rvm} },
   rails:  {type: :ruby,        provision: %w{rvm postgresql_client} },
   pg:     {type: :sql,         provision: %w{postgresql_server} },
   mongo:  {type: :nosql,       provision: %w{mongodb_server} },
