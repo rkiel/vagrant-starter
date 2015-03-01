@@ -5,7 +5,7 @@ active = [:express, :mongo]
 
 servers = {
   ruby:    {type: :ruby,        provision: %w{rvm} },
-  rails:   {type: :ruby,        provision: %w{rvm postgresql_client} },
+  rails:   {type: :ruby,        provision: %w{rvm rails postgresql_client} },
   pg:      {type: :sql,         provision: %w{postgresql_server} },
   mongo:   {type: :nosql,       provision: %w{mongodb_server} },
   aws:     {type: :aws,         provision: %w{rvm aws} },
