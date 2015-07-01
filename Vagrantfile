@@ -1,11 +1,12 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-active = [:express, :mongo]
+active = [:mina]
 
 servers = {
   ruby:    {type: :ruby,        provision: %w{rvm} },
   rails:   {type: :ruby,        provision: %w{rvm rails postgresql_client} },
+  mina:    {type: :ruby,        provision: %w{rvm mina ssh} },
   pg:      {type: :sql,         provision: %w{postgresql_server} },
   mongo:   {type: :nosql,       provision: %w{mongodb_server} },
   aws:     {type: :aws,         provision: %w{rvm aws} },
