@@ -4,5 +4,5 @@
 gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
 \curl -L https://get.rvm.io | bash -s stable --autolibs=packages
 source /etc/profile.d/rvm.sh
-rvm install 2.2.0
+rvm install 2.2.2
 adduser vagrant rvm
