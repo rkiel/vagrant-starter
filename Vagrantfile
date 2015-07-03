@@ -1,16 +1,18 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-active = [:mina]
+active = [:deploy]
+
+# PROVISION: runs as 'root' by default; append '-' at the end to run as 'vagrant'
 
 servers = {
-  ruby:    {type: :ruby,        provision: %w{rvm} },
-  rails:   {type: :ruby,        provision: %w{rvm rails postgresql_client} },
-  mina:    {type: :ruby,        provision: %w{rvm mina ssh} },
+  ruby:    {type: :ruby,        provision: %w{rvm-} },
+  rails:   {type: :ruby,        provision: %w{rvm- rails- postgresql_client} },
+  deploy:  {type: :ruby,        provision: %w{rvm- mina- ssh} },
   pg:      {type: :sql,         provision: %w{postgresql_server} },
   mongo:   {type: :nosql,       provision: %w{mongodb_server} },
-  aws:     {type: :aws,         provision: %w{rvm aws} },
-  heroku:  {type: :heroku,      provision: %w{git rvm heroku ssh} },
+  aws:     {type: :aws,         provision: %w{rvm- aws} },
+  heroku:  {type: :heroku,      provision: %w{git rvm- heroku ssh} },
   node:    {type: :javascript,  provision: %w{node mongodb_client} },
   express: {type: :javascript,  provision: %w{node express mongodb_client} },
   sails:   {type: :javascript,  provision: %w{node sails mongodb_client} },
@@ -32,6 +34,15 @@ boxes = {
   precise64: "http://files.vagrantup.com/precise64.box",
   trusty64:  "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
 }
+
+def privileged? (package)
+  !(package =~ /-$/)
+end
+
+def path_for (package)
+  "provision/#{package.sub(/-$/,'')}.sh"
+end
+
 
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
@@ -56,7 +67,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
       server.vm.network "private_network", ip: ip
       provision.each do |package|
-        server.vm.provision "shell", path: "provision/#{package}.sh"
+        server.vm.provision "shell", path: path_for(package), privileged: privileged?(package)
       end
     end
   end
