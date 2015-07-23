@@ -1,6 +1,6 @@
 ## Vagrant Starter
 
-Welcome to this quick start guide to setting up a web development environment using Vagrant.
+Welcome to this quick start guide to setting up a development environment using Vagrant.
 
 Imagine you just got a new computer and want to quickly setup a Virtual Box based development environment for building a web application.
 Vagrant is a great tool to make that happen.
