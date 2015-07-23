@@ -4,9 +4,9 @@ Welcome to this quick start guide to setting up a development environment using 
 
 You are a developer and you just got a new computer.  You want to get it setup so you can start working on the next big thing but you also want to keep your machine clean and tidy.  Plus, you use different development stacks for different projects.  Using a virtual development environment that is disposable is a great option.
 
-There are many options avaible and this project is focused on really great one:  Vagrant.
-This self-contained guide will walk you through the process.
-Once you see how this works, you can modify it to use your own preferred technology stack.
+There are many options avaible and this project is focused on really great one:  **Vagrant**.
+
+Vagrant is simple and easy to use.  But like anything it has to be setup and configured.  I've put together a started setup that will allow you to get started quickly.  You can easily fire up virtual servers for some common technology stacks:  Ruby on Rails, Node.js, Postgres, MongoDB, etc.  This self-contained guide will walk you through the process.  Once you see how this works, you can modify it to use your own preferred technology stack.
 
 I won't try to make the case for Vagrant here.
 Checkout [Why Vagrant?](http://docs.vagrantup.com/v2/why-vagrant/index.html) for that.
