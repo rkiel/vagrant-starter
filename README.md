@@ -2,10 +2,7 @@
 
 Welcome to this quick start guide to setting up a development environment using Vagrant.
 
-You are a developer and you just got a new computer.  
-You want to get it setup so you can start working on the next big thing but you also want to keep your machine clean and tidy.  
-Plus, you use different development stacks for different projects.  
-Using a virtual development environment that is disposable is a great option.
+You are a developer and you just got a new computer.  You want to get it setup so you can start working on the next big thing but you also want to keep your machine clean and tidy.  Plus, you use different development stacks for different projects.  Using a virtual development environment that is disposable is a great option.
 
 There are many options avaible and this project is focused on really great one:  Vagrant.
 This self-contained guide will walk you through the process.
