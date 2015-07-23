@@ -26,8 +26,8 @@ I don't proclaim to be an expert on Vagrant.  I simply created this guide while 
 ### Getting Started
 
 The setup is simple.
-You only need to install two software packages.
-Once you've completed the guide, you can uninstall them both and your computer will be clean again.
+You only need to install two software packages on your computer.
+Should you decide you don't want to use Vagrant any more, you can simply uninstall both of them and your computer will be clean again.  (But Vagrant is so awesome you won't want to uninstall it.)
 
 * [Download and install Virtual Box](https://www.virtualbox.org/wiki/Downloads).
 Vagrant primarily uses Oracle's VirtualBox to provide the virtual servers.
