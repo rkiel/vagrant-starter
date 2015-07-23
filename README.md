@@ -77,15 +77,18 @@ Vagrant also supports [Chef](http://www.opscode.com/chef/) and
 
 Server | Type   | IP            | Stack Provisioners
 ------ | ------ | ------------- | ------------------
+ruby   | ruby   | 192.168.33.10 | rvm
 rails  | ruby   | 192.168.33.10 | rvm, postgresql_client
+deploy | ruby   | 192.168.33.10 | rvm, mina, ssh
 pg     | sql    | 192.168.33.20 | postgresql_server
 mongo  | nosql  | 192.168.33.30 | mongodb_server
 aws    | aws    | 192.168.33.40 | rvm, aws
 heroku | heroku | 192.168.33.50 | git, rvm, heroku, ssh
-node   | javascript | 192.168.33.60 | node
-express| javascript | 192.168.33.60 | node, express
-sails  | javascript | 192.168.33.60 | node, sails
-mean   | javascript | 192.168.33.60 | git, node, mean
+node   | javascript | 192.168.33.60 | node, mongodb_client
+react  | javascript | 192.168.33.60 | node, git react
+express| javascript | 192.168.33.60 | node, express, mongodb_client
+sails  | javascript | 192.168.33.60 | node, sails, mongodb_client
+mean   | javascript | 192.168.33.60 | git, node, mean, mongodb_client
 nginx  | static | 192.168.33.70 | nginx-static
 
 ### Sample Ruby on Rails Setup
