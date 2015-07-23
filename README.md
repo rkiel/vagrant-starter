@@ -157,6 +157,6 @@ vagrant ssh heroku
 
 ### Mini Vagrant Tutorial
 
-[https://github.com/rkiel/vagrant-starter/wiki]
+If you want to learn how to build all this from scratch you can.  There is mini-tutorial on the project [Wiki](https://github.com/rkiel/vagrant-starter/wiki).
 
 
