@@ -155,3 +155,8 @@ Now ssh into the virtual server called `heruko` to use the heroku toolbelt to de
 vagrant ssh heroku
 ````
 
+### Mini Vagrant Tutorial
+
+[https://github.com/rkiel/vagrant-starter/wiki]
+
+
