@@ -93,22 +93,65 @@ nginx  | static | 192.168.33.70 | nginx-static
 
 ### Sample Ruby on Rails Setup
 
-Edit the `Vagrantfile` and setup 3 virtual servers.
+Edit the `Vagrantfile` and setup 3 virtual servers.  One for running Ruby on Rais, one for running a Postgres database, and one for the Heroku toolbelt.  All you have to do is change one line.
 
 ````ruby
 active = [:rails, :pg, :heroku]
 ````
 
-Now start up Vagrant.
+Now start up Vagrant.  (This take a few minutes the first time.)
 
 ````unix
 vagrant up
 ````
 
-Now login to the rails servers
+Now ssh into the virtual server called `rails` to install gems, run rake tasks, run the rails server, and run the rails console.
 
 ````unix
 vagrant ssh rails
 ````
 
-More to come
+If you want, you can ssh into the virtual server called `pg`.  It is just databse server so you probably won't every need to.
+
+````unix
+vagrant ssh pg
+````
+
+Now ssh into the virtual server called `heruko` to use the heroku toolbelt to deploy your application to Heroku.
+
+````unix
+vagrant ssh heroku
+````
+
+### Sample Express.js Setup
+
+Edit the `Vagrantfile` and setup 3 virtual servers.  One for running Node.js, one for running a MongoDB database, and one for the Heroku toolbelt.  All you have to do is change one line.
+
+````ruby
+active = [:express, :mongo, :heroku]
+````
+
+Now start up Vagrant.  (This take a few minutes the first time.)
+
+````unix
+vagrant up
+````
+
+Now ssh into the virtual server called `express` to install npm modules, run gulp/grunt tasks, and run the node server.
+
+````unix
+vagrant ssh express
+````
+
+If you want, you can ssh into the virtual server called `mongo`.  It is just databse server so you probably won't every need to.
+
+````unix
+vagrant ssh mongo
+````
+
+Now ssh into the virtual server called `heruko` to use the heroku toolbelt to deploy your application to Heroku.
+
+````unix
+vagrant ssh heroku
+````
+
