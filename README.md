@@ -66,9 +66,7 @@ There are two parts to this small repo.
 
 1. A file `Vagrantfile` which is the primary configuration file used by Vagrant.
 (Just like `Capfile` is the primary configuration file used by Capistrano.)
-2. A directory `provision`.
-It groups together in one place all the provisioning scripts and configurations that Vagrant will use to create our technology stack.
-(There is nothing special about the name of this directory.)
+2. A directory `provision`.  It contains all the provisioning scripts and configurations that Vagrant will use to create our technology stack.  (There is nothing special about the name of this directory.)
 
 Vagrant can provision servers using serveral different methods.
 To keep things simple, we are going to use unix shell scripts.
