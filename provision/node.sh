@@ -17,6 +17,9 @@ apt-get install -y npm >/dev/null 2>&1
 echo "  installing gcc make build-essential"
 apt-get install -y gcc make build-essential
 
+echo "  purging npm modules"
+rm -rf ~/.npm /vagrant/node_modules
+
 echo "  installing grunt"
 npm install -g grunt-cli >/dev/null 2>&1
 
