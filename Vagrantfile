@@ -1,7 +1,7 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-active = [:deploy]
+active = [:jekyll]
 
 # PROVISION: runs as 'root' by default; append '-' at the end to run as 'vagrant'
 
@@ -9,6 +9,7 @@ servers = {
   ruby:    {type: :ruby,        provision: %w{rvm-} },
   rails:   {type: :ruby,        provision: %w{rvm- rails- postgresql_client} },
   deploy:  {type: :ruby,        provision: %w{rvm- mina- ssh} },
+  jekyll:  {type: :ruby,        provision: %w{rvm- jekyll-} },
   pg:      {type: :sql,         provision: %w{postgresql_server} },
   mongo:   {type: :nosql,       provision: %w{mongodb_server} },
   aws:     {type: :aws,         provision: %w{rvm- aws} },
