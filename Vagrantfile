@@ -1,7 +1,7 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-active = [:jekyll]
+active = [:sails, :mongo]
 
 # PROVISION: runs as 'root' by default; append '-' at the end to run as 'vagrant'
 
