@@ -26,6 +26,9 @@ npm install lodash --save >/dev/null 2>&1
 echo "  installing webpack"
 npm install webpack --save-dev >/dev/null 2>&1
 
+echo "  installing webpack-dev-server"
+npm install webpack-dev-server --save-dev >/dev/null 2>&1
+
 # the core logic of Babel
 echo "  installing babel-core"
 npm install babel-core --save-dev >/dev/null 2>&1
@@ -50,5 +53,64 @@ npm install babel-preset-react --save-dev >/dev/null 2>&1
 
 echo "  installing babel-preset-stage-1"
 npm install babel-preset-stage-1 --save >/dev/null 2>&1
+
+# You could pass Babel settings through Webpack (i.e., babel?presets[]=react,presets[]=es2015),
+# but then it would be just for Webpack only.
+# That's why we are going to push our Babel settings to this specific dotfile.
+
+echo "  installing .babelrc"
+cat > .babelrc << EOF
+{
+  "presets": ["react", "es2015", "stage-1"]
+}
+EOF
+
+echo "  installing webpack.config.js"
+cat > webpack.config.js << EOF
+module.exports = {
+  entry: [
+    './app/index.js'
+  ],
+  output: {
+    path: __dirname,
+    publicPath: '/',
+    filename: 'bundle.js'
+  },
+  module: {
+    loaders: [{
+      exclude: /node_modules/,
+      loader: 'babel'
+    }]
+  },
+  resolve: {
+    extensions: ['', '.js', '.jsx']
+  },
+  devServer: {
+    historyApiFallback: true,
+    contentBase: './public'
+  }
+};
+EOF
+
+echo "  installing index.html"
+mkdir -p public
+cat > public/index.html << EOF
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/style/style.css">
+  </head>
+  <body>
+    <div class="container"></div>
+  </body>
+  <script src="/bundle.js"></script>
+</html>
+EOF
+
+mkdir -p app
+echo > app/index.js
+
+mkdir -p public/style
+echo > public/style/style.css
 
 echo "react installed"
