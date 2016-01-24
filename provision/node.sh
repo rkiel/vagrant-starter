@@ -26,4 +26,10 @@ npm install -g gulp >/dev/null 2>&1
 echo "  installing grunt"
 npm install -g grunt grunt-cli >/dev/null 2>&1
 
+echo "  installing webpack"
+npm install -g webpack >/dev/null 2>&1
+
+echo "  installing webpack-dev-server"
+npm install -g webpack-dev-server >/dev/null 2>&1
+
 echo "node installed"

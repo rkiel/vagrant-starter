@@ -23,12 +23,6 @@ npm install react-redux --save >/dev/null 2>&1
 echo "  installing lodash"
 npm install lodash --save >/dev/null 2>&1
 
-echo "  installing webpack"
-npm install webpack --save-dev >/dev/null 2>&1
-
-echo "  installing webpack-dev-server"
-npm install webpack-dev-server --save-dev >/dev/null 2>&1
-
 # the core logic of Babel
 echo "  installing babel-core"
 npm install babel-core --save-dev >/dev/null 2>&1
@@ -72,7 +66,7 @@ module.exports = {
     './app/index.js'
   ],
   output: {
-    path: __dirname,
+    path: __dirname + "/public",
     publicPath: '/',
     filename: 'bundle.js'
   },
@@ -87,7 +81,9 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-    contentBase: './public'
+    contentBase: './public',
+    host: '192.168.33.60',
+    port: 3000
   }
 };
 EOF
@@ -108,7 +104,52 @@ cat > public/index.html << EOF
 EOF
 
 mkdir -p app
-echo > app/index.js
+
+mkdir -p app/actions
+touch app/actions/index.js
+
+mkdir -p app/components
+cat > app/components/app.js << EOF
+import React from 'react';
+import { Component } from 'react';
+
+export default class App extends Component {
+  render() {
+    return (
+      <div>React simple starter</div>
+    );
+  }
+}
+EOF
+
+mkdir -p app/reducers
+cat > app/reducers/index.js << EOF
+import { combineReducers } from 'redux';
+
+const rootReducer = combineReducers({
+  state: (state = {}) => state
+});
+
+export default rootReducer;
+EOF
+
+cat > app/index.js << EOF
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+
+import App from './components/app';
+import reducers from './reducers';
+
+const createStoreWithMiddleware = applyMiddleware()(createStore);
+
+ReactDOM.render(
+  <Provider store={createStoreWithMiddleware(reducers)}>
+    <App />
+  </Provider>
+  , document.querySelector('.container'));
+EOF
 
 mkdir -p public/style
 echo > public/style/style.css
