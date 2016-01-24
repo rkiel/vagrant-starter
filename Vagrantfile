@@ -1,7 +1,7 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-active = [:sails, :mongo]
+active = [:react]
 
 # PROVISION: runs as 'root' by default; append '-' at the end to run as 'vagrant'
 
@@ -18,7 +18,8 @@ servers = {
   express: {type: :javascript,  provision: %w{node express mongodb_client} },
   sails:   {type: :javascript,  provision: %w{node sails mongodb_client} },
   mean:    {type: :javascript,  provision: %w{git node mean mongodb_client} },
-  nginx:   {type: :static,      provision: %w{nginx-static} }
+  nginx:   {type: :static,      provision: %w{nginx-static} },
+  react:   {type: :javascript,  provision: %w{node react git} }
 }.select { |key,value| active.include? key }
 
 types = {

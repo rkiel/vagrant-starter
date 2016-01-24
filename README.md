@@ -85,7 +85,7 @@ mongo  | nosql  | 192.168.33.30 | mongodb_server
 aws    | aws    | 192.168.33.40 | rvm, aws
 heroku | heroku | 192.168.33.50 | git, rvm, heroku, ssh
 node   | javascript | 192.168.33.60 | node, mongodb_client
-react  | javascript | 192.168.33.60 | node, git react
+react  | javascript | 192.168.33.60 | node, react
 express| javascript | 192.168.33.60 | node, express, mongodb_client
 sails  | javascript | 192.168.33.60 | node, sails, mongodb_client
 mean   | javascript | 192.168.33.60 | git, node, mean, mongodb_client
