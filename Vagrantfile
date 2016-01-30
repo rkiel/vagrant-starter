@@ -13,7 +13,7 @@ servers = {
   pg:      {type: :sql,         provision: %w{postgresql_server} },
   mongo:   {type: :nosql,       provision: %w{mongodb_server} },
   aws:     {type: :aws,         provision: %w{rvm- aws-} },
-  heroku:  {type: :heroku,      provision: %w{git rvm- heroku ssh} },
+  heroku:  {type: :heroku,      provision: %w{git rvm- heroku- ssh-} },
   node:    {type: :javascript,  provision: %w{node mongodb_client} },
   express: {type: :javascript,  provision: %w{node express mongodb_client} },
   sails:   {type: :javascript,  provision: %w{node sails mongodb_client} },
