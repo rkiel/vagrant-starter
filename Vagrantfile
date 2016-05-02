@@ -7,7 +7,7 @@ active = [:rails]
 
 servers = {
   ruby:    {type: :ruby,        provision: %w{rvm-} },
-  rails:   {type: :ruby,        provision: %w{rvm- rails- postgresql_client} },
+  rails:   {type: :ruby,        provision: %w{rvm- rails- git heroku-} },
   deploy:  {type: :ruby,        provision: %w{rvm- mina- ssh} },
   jekyll:  {type: :ruby,        provision: %w{rvm- jekyll- aws-} },
   pg:      {type: :sql,         provision: %w{postgresql_server} },
