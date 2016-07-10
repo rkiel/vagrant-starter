@@ -7,19 +7,19 @@ active = [:rails]
 
 servers = {
   ruby:    {type: :ruby,        provision: %w{rvm-} },
-  rails:   {type: :ruby,        provision: %w{rvm- rails- git heroku-} },
+  rails:   {type: :ruby,        provision: %w{rvm- rails- heroku-} },
   deploy:  {type: :ruby,        provision: %w{rvm- mina- ssh} },
   jekyll:  {type: :ruby,        provision: %w{rvm- jekyll- aws-} },
   pg:      {type: :sql,         provision: %w{postgresql_server} },
   mongo:   {type: :nosql,       provision: %w{mongodb_server} },
   aws:     {type: :aws,         provision: %w{rvm- aws-} },
-  heroku:  {type: :heroku,      provision: %w{git rvm- heroku- ssh-} },
+  heroku:  {type: :heroku,      provision: %w{rvm- heroku- ssh-} },
   node:    {type: :javascript,  provision: %w{node mongodb_client} },
   express: {type: :javascript,  provision: %w{node express mongodb_client} },
   sails:   {type: :javascript,  provision: %w{node sails mongodb_client} },
-  mean:    {type: :javascript,  provision: %w{git node mean mongodb_client} },
+  mean:    {type: :javascript,  provision: %w{node mean mongodb_client} },
   nginx:   {type: :static,      provision: %w{nginx-static} },
-  react:   {type: :javascript,  provision: %w{node react git} }
+  react:   {type: :javascript,  provision: %w{node react} }
 }.select { |key,value| active.include? key }
 
 types = {
