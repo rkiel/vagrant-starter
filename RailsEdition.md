@@ -18,10 +18,6 @@ Create a new rails project
     rm -f Gemfile*
     rails new .
 
-Remove files
-
-    rm README.rdoc
-
 #### Git
 
 Restore `.gitingore` paths
@@ -30,10 +26,14 @@ Restore `.gitingore` paths
     echo '.rvmrc'       >> .gitignore
     echo 'node_modules' >> .gitignore
 
+Reset repository (OPTIONAL)
+
+    git -rf .git
+    git init
+    
 Add new files to git
 
-    git init
-    git add .gitignore Gemfile* Rakefile app bin config* db lib log public test vendor
+    git add .gitignore Gemfile* Rakefile app bin config* db lib log public test tmp vendor
     git add Vagrantfile provision
 
 Commit changes
