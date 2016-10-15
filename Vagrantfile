@@ -14,6 +14,7 @@ servers = {
   mongo:   {type: :nosql,       provision: %w{mongodb_server} },
   aws:     {type: :aws,         provision: %w{rvm- aws-} },
   heroku:  {type: :heroku,      provision: %w{rvm- heroku- ssh-} },
+  netlify: {type: :javascript,  provision: %w{node netlify} },
   node:    {type: :javascript,  provision: %w{node mongodb_client} },
   express: {type: :javascript,  provision: %w{node express mongodb_client} },
   sails:   {type: :javascript,  provision: %w{node sails mongodb_client} },
