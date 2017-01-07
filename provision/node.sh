@@ -26,6 +26,9 @@ npm install -g gulp >/dev/null 2>&1
 echo "  installing grunt"
 npm install -g grunt grunt-cli >/dev/null 2>&1
 
+echo "  installing yarn"
+npm install -g yarn >/dev/null 2>&1
+
 echo "  installing webpack"
 npm install -g webpack >/dev/null 2>&1
 
